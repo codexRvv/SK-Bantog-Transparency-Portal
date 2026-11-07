@@ -3,21 +3,25 @@ declare(strict_types=1);
 
 date_default_timezone_set('Asia/Manila');
 
-header('X-Content-Type-Options: nosniff');
-header('X-Frame-Options: DENY');
-header('Referrer-Policy: strict-origin-when-cross-origin');
-header("Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'");
+// Web requests need secure headers and a session. CLI setup commands do not.
+// Starting a session after console output triggers "headers already sent" warnings.
+if (PHP_SAPI !== 'cli') {
+    header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: DENY');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+    header("Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'");
 
-ini_set('session.use_strict_mode', '1');
-ini_set('session.use_only_cookies', '1');
-session_name('sk_bantog_portal');
-session_set_cookie_params([
-    'lifetime' => 0, 'path' => '/', 'httponly' => true,
-    'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
-    'samesite' => 'Lax',
-]);
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
+    ini_set('session.use_strict_mode', '1');
+    ini_set('session.use_only_cookies', '1');
+    session_name('sk_bantog_portal');
+    session_set_cookie_params([
+        'lifetime' => 0, 'path' => '/', 'httponly' => true,
+        'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
+        'samesite' => 'Lax',
+    ]);
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        session_start();
+    }
 }
 
 function app_config(): array
