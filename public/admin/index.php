@@ -218,7 +218,7 @@ try {
     } else {
         $operator = require_admin();
     }
-    $year = clean_year($_GET['year'] ?? date('Y'));
+    $year = clean_year($_GET['year'] ?? launch_fiscal_year());
     $categories = $view === 'upload' ? sql('SELECT id,name,description FROM document_categories ORDER BY sort_order')->fetchAll() : [];
     $recentDocuments = in_array($view, ['overview','documents'], true)
         ? sql('SELECT d.id,d.title,d.fiscal_year,d.status,d.original_name,d.created_at,d.published_at,c.name AS category_name,u.name AS uploader
