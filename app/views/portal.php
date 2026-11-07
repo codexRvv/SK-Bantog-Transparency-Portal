@@ -40,34 +40,34 @@ $yearString = (string) $year;
 </header>
 <main id="main">
 <?php if ($page === 'home'): ?>
-  <section class="hero">
+  <section class="hero"><div class="hero-topline"><div class="shell"><span>THE OFFICIAL PUBLIC INFORMATION PLATFORM</span><span>BARANGAY BANTOG · TARLAC CITY</span></div></div>
     <div class="shell hero-grid">
       <div class="hero-copy">
         <div class="hero-identity"><span class="hero-crest"><img src="assets/images/sk-bantog-logo.webp" width="66" height="66" alt=""></span><div><span class="eyebrow light"><span class="pulse-dot"></span> SANGGUNIANG KABATAAN · BARANGAY BANTOG</span><small>TARLAC CITY, PHILIPPINES · FISCAL YEAR <?= $year ?></small></div></div>
-        <h1>Transparency<br>you can <span>trust.</span></h1>
-        <p>Welcome to the Sangguniang Kabataan Budget Transparency Portal of Barangay Bantog, Tarlac City. Explore published SK budgets, expenses, documents and youth development initiatives in one accessible space.</p>
+        <h1>Public funds.<br><span>Public trust.</span><br>Our shared future.</h1>
+        <p>Know where our youth funds go. Discover the budgets, official documents, financial reports, and community projects shaping the future of Barangay Bantog.</p>
         <div class="hero-actions">
-          <a class="btn btn-white" href="<?= e(portal_url('dashboard')) ?>">Explore dashboard <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-glass" href="<?= e(portal_url('documents')) ?>">Browse public records <span aria-hidden="true">→</span></a>
+          <a class="btn btn-white" href="<?= e(portal_url('dashboard')) ?>">Explore the finances <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-glass" href="<?= e(portal_url('documents')) ?>">View public documents <span aria-hidden="true">→</span></a>
         </div>
-        <div class="hero-trust"><span>TRANSPARENCY</span><span>ACCOUNTABILITY</span><span>PARTICIPATION</span></div>
+        <div class="hero-trust"><span><b>01</b> OPEN INFORMATION</span><span><b>02</b> RESPONSIBLE GOVERNANCE</span><span><b>03</b> YOUTH PARTICIPATION</span></div>
       </div>
       <div class="hero-panel">
-        <div class="panel-top"><span class="icon-disc"><img src="assets/images/sk-bantog-logo.webp" width="49" height="49" alt=""></span><span class="panel-tag">FY <?= $year ?> FINANCIAL SUMMARY</span></div>
-        <div class="stat-label">Approved Annual Budget</div>
+        <div class="panel-top"><span class="panel-kicker"><span class="live-indicator"></span> PUBLIC FINANCIAL RECORD</span><span class="panel-tag">FY <?= $year ?></span></div><div class="panel-heading"><span>THE SK BUDGET</span><h2>Our funds,<br>at a glance.</h2></div>
+        <div class="stat-label">APPROVED ANNUAL ALLOCATION</div>
         <div class="hero-amount"><?= $stats['approved'] === null ? '<span class="unpublished">Awaiting publication</span>' : e(cash($stats['approved'])) ?></div>
         <div class="panel-divider"></div>
         <div class="panel-metric"><span>Reported expenditures</span><strong><?= e(cash($stats['spent'])) ?></strong></div>
         <div class="panel-metric"><span>Remaining balance</span><strong class="<?= $stats['balance'] !== null && $stats['balance'] < 0 ? 'negative' : 'positive' ?>"><?= $stats['balance'] === null ? '—' : e(cash($stats['balance'])) ?></strong></div>
         <div class="panel-metric"><span>Budget utilization</span><strong><?= $stats['approved'] === null ? '—' : number_format($stats['utilization'], 1) . '%' ?></strong></div>
         <progress value="<?= e((string) $stats['utilization']) ?>" max="100" aria-label="Budget utilization"></progress>
-        <div class="panel-note">Figures appear only after authorized publication. <a href="<?= e(portal_url('budget')) ?>">View details →</a></div>
+        <div class="panel-note">Only officially published figures are displayed. <a href="<?= e(portal_url('budget')) ?>">Explore budget details →</a></div>
       </div>
     </div>
     <div class="hero-art hero-art-one" aria-hidden="true"></div><div class="hero-art hero-art-two" aria-hidden="true"></div>
   </section>
   <section class="snapshot">
-    <div class="shell snapshot-grid">
+    <div class="shell snapshot-heading"><span>THE PORTAL IN NUMBERS</span><strong>Open access. Informed community.</strong></div><div class="shell snapshot-grid">
       <div><span class="snapshot-icon">▣</span><strong><?= $documentTotal ?></strong><span>Public documents</span></div>
       <div><span class="snapshot-icon">◉</span><strong><?= count($projects) ?></strong><span>Visible projects</span></div>
       <div><span class="snapshot-icon">⌁</span><strong><?= $year ?></strong><span>Current fiscal year</span></div>
@@ -75,7 +75,7 @@ $yearString = (string) $year;
     </div>
   </section>
   <section class="section shell">
-    <div class="section-heading"><div><span class="overline">EXPLORE THE PORTAL</span><h2>Information that belongs to the public.</h2><p>Find the records and updates you need without creating an account.</p></div></div>
+    <div class="section-heading"><div><span class="overline">EXPLORE PUBLIC INFORMATION</span><h2>Your community.<br>Your right to know.</h2><p>Clear, organized access to the information that matters. No account required.</p></div></div>
     <div class="feature-grid">
       <a class="feature-card" href="<?= e(portal_url('budget')) ?>"><span class="feature-icon blue">₱</span><span class="feature-index">01 / FINANCIALS</span><h3>Annual SK Budget</h3><p>Approved appropriations, utilization and reported disbursements.</p><span class="feature-link">View annual budget →</span></a>
       <a class="feature-card" href="<?= e(portal_url('documents',['category'=>2,'year'=>'all'])) ?>"><span class="feature-icon mint">◎</span><span class="feature-index">02 / ALLOCATIONS</span><h3>Specific Purpose Fund</h3><p>Published supporting documents on dedicated funding and assistance.</p><span class="feature-link">Explore fund records →</span></a>
@@ -84,13 +84,13 @@ $yearString = (string) $year;
     </div>
   </section>
   <section class="section section-soft"><div class="shell">
-    <div class="section-heading inline-heading"><div><span class="overline">PUBLIC LIBRARY</span><h2>Recently published documents</h2><p>Official records become accessible here after an authorized publisher makes them public.</p></div><a class="text-link" href="<?= e(portal_url('documents',['year'=>'all'])) ?>">View all documents →</a></div>
+    <div class="section-heading inline-heading"><div><span class="overline">OFFICIAL DISCLOSURES</span><h2>Latest public records</h2><p>Official records become accessible here after an authorized publisher makes them public.</p></div><a class="text-link" href="<?= e(portal_url('documents',['year'=>'all'])) ?>">View all documents →</a></div>
     <?php if (!$latest): ?><div class="empty"><span class="empty-icon">▤</span><h3>No documents published yet</h3><p>Authorized SK officials can upload and publish approved records from the administration workspace.</p></div>
     <?php else: ?><div class="doc-list">
       <?php foreach ($latest as $doc): ?><article class="doc-row"><div class="doc-symbol">PDF</div><div class="doc-details"><strong><?= e($doc['title']) ?></strong><span><?= e($doc['category_name']) ?> · FY <?= (int) $doc['fiscal_year'] ?> · <?= e(date('M j, Y',strtotime($doc['published_at']))) ?></span></div><a class="btn btn-outline btn-sm" href="<?= e(portal_url('download',['id'=>(int)$doc['id']])) ?>">Download ↓</a></article><?php endforeach; ?>
     </div><?php endif; ?>
   </div></section>
-  <section class="cta shell"><div><span class="overline">OUR COMMITMENT</span><h2>Every peso deserves accountability.</h2><p>We aim to make SK records clear, accessible and useful to every resident of Barangay Bantog.</p></div><a class="btn btn-white" href="<?= e(portal_url('about')) ?>">Learn about this portal ↗</a></section>
+  <section class="cta shell"><div><span class="overline">A PROMISE TO OUR COMMUNITY</span><h2>Better information.<br>Stronger participation.</h2><p>Transparency is more than a report. It is a commitment to the young people and residents of Barangay Bantog.</p></div><a class="btn btn-white" href="<?= e(portal_url('about')) ?>">Learn about this portal ↗</a></section>
 
 <?php elseif ($page === 'dashboard'): ?>
 <section class="page-banner"><div class="shell"><span class="overline">PUBLIC FINANCIAL OVERVIEW</span><h1>Budget Dashboard</h1><p>A transparent snapshot of published SK financial records for fiscal year <?= $year ?>.</p></div></section>
