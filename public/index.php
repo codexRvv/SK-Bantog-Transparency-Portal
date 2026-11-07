@@ -12,7 +12,7 @@ try {
         http_response_code(404);
         $page = 'notfound';
     }
-    $year = clean_year($_GET['year'] ?? date('Y'));
+    $year = clean_year($_GET['year'] ?? launch_fiscal_year());
     $stats = overview($year);
     $categories = sql('SELECT id,slug,name,description FROM document_categories ORDER BY sort_order')->fetchAll();
     $latest = sql("SELECT d.id,d.title,d.description,d.fiscal_year,d.published_at,d.file_size,c.name AS category_name
