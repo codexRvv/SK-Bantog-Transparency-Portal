@@ -1,4 +1,4 @@
-name: PHP lint
+name: PHP lint and smoke tests
 
 on:
   push:
@@ -10,7 +10,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check PHP version
+      - name: Show PHP version
         run: php -v
       - name: Lint every PHP file
         run: find app bin config public -type f -name '*.php' -print0 | xargs -0 -n1 php -l
+
+  functional-smoke:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: testpass
+          MYSQL_DATABASE: sk_bantog_portal
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -ptestpass"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm required PHP extensions
+        run: |
+          php -m | grep -qi pdo_mysql
+          php -m | grep -qi fileinfo
+      - name: Exercise public portal and administration workflow
+        run: bash tests/smoke.sh
+      - name: Show local server log on failure
+        if: failure()
+        run: cat /tmp/sk-bantog-php.log 2>/dev/null || true
