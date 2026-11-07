@@ -2,6 +2,10 @@
 
 A public information portal for the Sangguniang Kabataan of Barangay Bantog, Tarlac City, with a private publishing workspace for authorized SK officials.
 
+## Fiscal year and launch
+
+The portal is being prepared in 2026 for operational use beginning in **2027**. The public dashboard and official entry forms default to fiscal year 2027. Earlier years can still be viewed when explicitly selected. No financial records are generated or published automatically.
+
 ## Purpose
 
 Make approved SK budget records, financial reports, public project updates, and supporting documents easy for residents to find and download. **No financial data is pre-filled or represented as official**; figures are visible only after authorized officials enter and publish records.
