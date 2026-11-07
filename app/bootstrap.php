@@ -69,10 +69,15 @@ function cash(int|float|string|null $amount): string
     return '₱' . number_format((float) ($amount ?? 0), 2);
 }
 
+function launch_fiscal_year(): int
+{
+    return 2027;
+}
+
 function clean_year(mixed $value): int
 {
     $year = filter_var($value, FILTER_VALIDATE_INT);
-    return $year && $year >= 2020 && $year <= 2100 ? $year : (int) date('Y');
+    return $year && $year >= 2020 && $year <= 2100 ? $year : launch_fiscal_year();
 }
 
 function portal_url(string $page = 'home', array $query = []): string
