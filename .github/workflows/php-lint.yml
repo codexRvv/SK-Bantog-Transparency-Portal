@@ -1,0 +1,16 @@
+name: PHP lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  php-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check PHP version
+        run: php -v
+      - name: Lint every PHP file
+        run: find app bin config public -type f -name '*.php' -print0 | xargs -0 -n1 php -l
