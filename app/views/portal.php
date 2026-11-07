@@ -34,6 +34,7 @@ $yearString = (string) $year;
       <a class="<?= $page === 'budget' ? 'active' : '' ?>" href="<?= e(portal_url('budget')) ?>">Annual Budget</a>
       <a class="<?= $page === 'documents' || $page === 'reports' ? 'active' : '' ?>" href="<?= e(portal_url('documents')) ?>">Documents</a>
       <a class="<?= $page === 'projects' ? 'active' : '' ?>" href="<?= e(portal_url('projects')) ?>">Projects</a>
+      <a href="plans.php">Youth Plans</a>
       <a class="nav-admin" href="admin/index.php?view=login">Officials sign in <span aria-hidden="true">↗</span></a>
     </nav>
   </div>
@@ -49,6 +50,7 @@ $yearString = (string) $year;
         <div class="hero-actions">
           <a class="btn btn-white" href="<?= e(portal_url('dashboard')) ?>">Explore the finances <span aria-hidden="true">↗</span></a>
           <a class="btn btn-glass" href="<?= e(portal_url('documents')) ?>">View public documents <span aria-hidden="true">→</span></a>
+          <a class="btn btn-glass" href="plans.php">CBYDP &amp; ABYIP ↗</a>
         </div>
         <div class="hero-trust"><span><b>01</b> OPEN INFORMATION</span><span><b>02</b> RESPONSIBLE GOVERNANCE</span><span><b>03</b> YOUTH PARTICIPATION</span></div>
       </div>
