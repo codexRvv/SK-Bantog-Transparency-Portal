@@ -52,3 +52,19 @@ Open http://127.0.0.1:8080 and use the **Officials sign in** link. The same appl
 4. Archived records are no longer publicly downloadable; metadata remains in the admin workspace.
 
 The public website shows no financial amounts until a publisher enters the corresponding approved annual budget. The expenditure list displays **only published** transactions.
+
+
+## 2027 youth planning module (one-time database upgrade)
+
+Existing installations must apply the **non-destructive** migration after pulling the latest code:
+
+1. Back up `sk_bantog_portal` using phpMyAdmin > Export.
+2. Open phpMyAdmin, select `sk_bantog_portal`, choose **SQL**.
+3. Paste and execute `database/migrations/002_youth_plans.sql` once. It creates `youth_plans` and `youth_plan_items`; it does not erase existing records.
+4. Open `http://127.0.0.1:8080/admin/plans.php` after signing in.
+5. Create a **CBYDP** (three-year plan) or **ABYIP** (annual plan) for 2027, add activities, then keep as draft until the official signed plan is approved.
+6. A publisher or administrator can publish the structured plan. The public can view published entries at `http://127.0.0.1:8080/plans.php`.
+
+This module is an editable planning and disclosure interface, **not an official replacement for the prescribed DILG/DBM/NYC forms**. Upload the approved and signed PDF using Document Management as well. Review the latest required annexes and local LYDO instructions before submitting.
+
+Official reference: DBM-DILG-NYC JMC No. 2025-1 (May 23, 2025), and DILG SK Full Public Disclosure Annexes A–E.
