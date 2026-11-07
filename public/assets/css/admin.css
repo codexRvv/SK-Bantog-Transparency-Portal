@@ -108,3 +108,45 @@
 .sidebar-brand .brand-logo,.login-brand .brand-logo{width:47px;height:47px;object-fit:contain;background:white;border-radius:50%;padding:1px}
 .login-card-icon{width:74px;height:74px;border-radius:50%;background:white;overflow:hidden;box-shadow:0 4px 24px #174c941f}
 .login-card-icon img{width:70px;height:70px;object-fit:contain}
+
+
+/* 2027 officials workspace: understated civic design */
+:root{--admin-bg:#f6f7f5}
+.admin-body{background:var(--admin-bg)}
+.admin-layout{grid-template-columns:265px minmax(0,1fr)}
+.admin-sidebar{background:#102b42;padding:29px 17px}
+.sidebar-brand{padding-bottom:27px}
+.sidebar-brand strong{letter-spacing:.09em;font-size:.83rem}
+.sidebar-brand small{color:#9db3c0}
+.sidebar-label{color:#b6a267;margin-top:34px}
+.sidebar-nav a{border-radius:7px;padding:13px 14px;color:#b9cbd5;font-weight:600}
+.sidebar-nav a:hover,.sidebar-nav a.current{background:#24455d;color:#fff}
+.sidebar-nav a.current{box-shadow:inset 3px 0 0 #e1bb53}
+.sidebar-nav a span{color:#e4c46d;font-size:18px}
+.user-chip>span{background:#c69c39;color:#142f44}
+.admin-topbar{padding:30px 43px;background:#fff;border-color:#e6e8e5}
+.admin-topbar h1{font-family:Georgia,serif;font-weight:500;font-size:2rem;color:#18354b}
+.topbar-kicker{color:#a1833b;letter-spacing:.14em}
+.admin-content{max-width:1520px;padding:34px 43px 85px}
+.admin-welcome{background:#163c57;border-radius:12px;box-shadow:none;padding:35px 39px;position:relative;overflow:hidden}
+.admin-welcome:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #ffffff1d;border-radius:50%;right:-70px;top:-120px;pointer-events:none}
+.admin-welcome h2{font-family:Georgia,serif;font-size:1.9rem;font-weight:500}
+.admin-welcome .overline{color:#e2c577}
+.admin-welcome p{color:#cad9df}
+.admin-welcome .btn-primary{background:#e4bd5c;color:#18364d;z-index:1}
+.admin-welcome .btn-primary:hover{background:#f2d487}
+.admin-panel{border-radius:10px;box-shadow:none;border-color:#e3e8e5;padding:29px}
+.admin-panel-heading h2{font-family:Georgia,serif;font-size:1.38rem;font-weight:500;color:#183a51}
+.admin-stat{border-color:#e3e8e5;border-radius:9px;min-height:145px;padding:25px}
+.admin-stat strong{color:#173b56}
+.admin-stat span{color:#8b968f}
+.admin-stat small{color:#8b9a9d}
+.admin-stat-grid a.admin-stat:hover{border-color:#cba64d;background:#fffdf7;transform:translateY(-2px)}
+.admin-description{background:#f8f4e8;border-color:#e8ddbc}
+.admin-description p{color:#6f623e}
+.mini-button{border-color:#d8cba5;color:#715b25;background:#fcf8eb}
+.mini-button:hover{background:#f6edce}
+.status-tag.draft{background:#fff5dc;color:#987020}
+.status-tag.published{background:#e4f5ed;color:#2a7b5a}
+@media(max-width:900px){.admin-layout{grid-template-columns:1fr}.admin-sidebar{position:relative;height:auto;min-height:auto}.admin-topbar{padding:23px}.admin-content{padding:24px}.admin-welcome{padding:27px}.admin-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.admin-stat-grid{grid-template-columns:1fr}.admin-topbar{align-items:flex-start;flex-direction:column}}
