@@ -70,7 +70,7 @@ $yearString = (string) $year;
     <div class="shell snapshot-heading"><span>THE PORTAL IN NUMBERS</span><strong>Open access. Informed community.</strong></div><div class="shell snapshot-grid">
       <div><span class="snapshot-icon">▣</span><strong><?= $documentTotal ?></strong><span>Public documents</span></div>
       <div><span class="snapshot-icon">◉</span><strong><?= count($projects) ?></strong><span>Visible projects</span></div>
-      <div><span class="snapshot-icon">⌁</span><strong><?= $year ?></strong><span>Current fiscal year</span></div>
+      <div><span class="snapshot-icon">⌁</span><strong><?= $year ?></strong><span>Portal fiscal year</span></div>
       <div><span class="snapshot-icon">↗</span><strong>Open</strong><span>Public access</span></div>
     </div>
   </section>
