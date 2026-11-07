@@ -1,0 +1,8 @@
+/config/local.php
+/storage/uploads/*
+!/storage/uploads/.gitkeep
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db
+*.log
