@@ -17,7 +17,8 @@ current_year=$(date +%Y)
 cookie_file=/tmp/sk-bantog-cookies.txt
 
 curl -fsS "$base/" > /tmp/home.html
-grep -q 'Open records' /tmp/home.html
+grep -q 'Transparency' /tmp/home.html
+grep -q 'sk-bantog-logo.webp' /tmp/home.html
 grep -q 'Awaiting publication' /tmp/home.html
 curl -fsS "$base/index.php?page=budget" > /tmp/budget-before.html
 grep -q 'Annual SK Budget' /tmp/budget-before.html
