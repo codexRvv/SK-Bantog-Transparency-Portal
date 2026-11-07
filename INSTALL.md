@@ -8,14 +8,26 @@ Clone into a development folder, for example C:\xampp\htdocs\SK-Bantog-Transpare
 ## 2. Configure MySQL
 Start MySQL from XAMPP. Open phpMyAdmin and import database/schema.sql. The script creates the sk_bantog_portal database and its tables.
 
-Copy config/local.example.php to config/local.php, then edit your **local** MySQL host/username/password. Do not commit local.php.
+Open PowerShell **in the repository root** and run:
+
+```powershell
+Copy-Item config\local.example.php config\local.php
+notepad config\local.php
+php bin/check-setup.php
+```
+
+The name in the file must be `sk_bantog_portal`. For a standard local XAMPP MySQL installation, host is `127.0.0.1`, port is `3306`, user is `root`, and password may be blank. Use the actual credentials you configured, and **never commit `config/local.php`**.
+
+If you previously saw **"Portal setup or service required"**, the table import can be complete while `config/local.php` is still missing. Run `php bin/check-setup.php` to identify the remaining missing step.
 
 ## 3. Create the first administrator
 In a terminal at the repository root:
 
     php bin/create-admin.php skadmin@example.com
 
-Enter a display name and a long password when prompted. On Windows, the password is visibly entered in this basic setup script; use a private terminal. This installer does not create any financial figures or upload example documents.
+Enter a display name and a new long password when prompted. On Windows, the password is visibly entered in this basic setup script; use a private terminal. Do not reuse a password that has been pasted into chats or logs. Rerun `php bin/check-setup.php` after creating the account.
+
+This installer does not create any financial figures or upload example documents.
 
 ## 4. Run
 Recommended development command from the repository root:

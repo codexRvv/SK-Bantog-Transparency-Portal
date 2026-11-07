@@ -24,7 +24,7 @@ $yearString = (string) $year;
 <header class="site-header">
   <div class="shell header-inner">
     <a class="brand" href="<?= e(portal_url()) ?>" aria-label="SK Barangay Bantog home">
-      <span class="brand-mark" aria-hidden="true">SK</span>
+      <img class="brand-logo" src="assets/images/sk-bantog-logo.webp" width="50" height="50" alt="SK Barangay Bantog logo">
       <span class="brand-label"><strong>SK BARANGAY BANTOG</strong><small>BUDGET TRANSPARENCY PORTAL · TARLAC CITY</small></span>
     </a>
     <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button>
@@ -43,8 +43,8 @@ $yearString = (string) $year;
   <section class="hero">
     <div class="shell hero-grid">
       <div class="hero-copy">
-        <div class="eyebrow light"><span class="pulse-dot"></span> PUBLIC INFORMATION PORTAL <span class="sep">/</span> FISCAL YEAR <?= $year ?></div>
-        <h1>Open records.<br><span>Stronger community.</span></h1>
+        <div class="hero-identity"><span class="hero-crest"><img src="assets/images/sk-bantog-logo.webp" width="66" height="66" alt=""></span><div><span class="eyebrow light"><span class="pulse-dot"></span> SANGGUNIANG KABATAAN · BARANGAY BANTOG</span><small>TARLAC CITY, PHILIPPINES · FISCAL YEAR <?= $year ?></small></div></div>
+        <h1>Transparency<br>you can <span>trust.</span></h1>
         <p>Welcome to the Sangguniang Kabataan Budget Transparency Portal of Barangay Bantog, Tarlac City. Explore published SK budgets, expenses, documents and youth development initiatives in one accessible space.</p>
         <div class="hero-actions">
           <a class="btn btn-white" href="<?= e(portal_url('dashboard')) ?>">Explore dashboard <span aria-hidden="true">↗</span></a>
@@ -53,7 +53,7 @@ $yearString = (string) $year;
         <div class="hero-trust"><span>TRANSPARENCY</span><span>ACCOUNTABILITY</span><span>PARTICIPATION</span></div>
       </div>
       <div class="hero-panel">
-        <div class="panel-top"><span class="icon-disc">◈</span><span class="panel-tag">FY <?= $year ?> FINANCIAL SUMMARY</span></div>
+        <div class="panel-top"><span class="icon-disc"><img src="assets/images/sk-bantog-logo.webp" width="49" height="49" alt=""></span><span class="panel-tag">FY <?= $year ?> FINANCIAL SUMMARY</span></div>
         <div class="stat-label">Approved Annual Budget</div>
         <div class="hero-amount"><?= $stats['approved'] === null ? '<span class="unpublished">Awaiting publication</span>' : e(cash($stats['approved'])) ?></div>
         <div class="panel-divider"></div>
@@ -153,5 +153,5 @@ $yearString = (string) $year;
 <div class="shell inner-content"><div class="content-panel prose"><h2>What you can find here</h2><p>This portal is designed to make published budget allocations, quarterly reports, financial summaries, public documents and community projects easier to access.</p><h2>Who publishes records?</h2><p>Only authenticated SK officials with publishing authority can make uploaded documents publicly downloadable. Draft and archived records are restricted from the public site.</p><h2>Document accuracy</h2><p>Amounts and reports are entered or uploaded by authorized officials. Supporting PDFs should be reviewed and approved under the barangay's applicable disclosure process before publication.</p><p>For formal verification of a report, contact the authorized SK office of Barangay Bantog, Tarlac City.</p></div></div>
 <?php else: ?><div class="shell inner-content"><div class="empty"><h1>Page not found</h1><p>The requested page does not exist.</p><a class="btn btn-primary" href="<?= e(portal_url()) ?>">Return home</a></div></div><?php endif; ?>
 </main>
-<footer class="site-footer"><div class="shell footer-main"><div class="footer-brand"><span class="brand-mark">SK</span><div><strong>Sangguniang Kabataan<br>Barangay Bantog</strong><p>Tarlac City, Philippines</p></div></div><div><strong>Explore</strong><a href="<?= e(portal_url('dashboard')) ?>">Dashboard</a><a href="<?= e(portal_url('budget')) ?>">Annual budget</a><a href="<?= e(portal_url('documents',['year'=>'all'])) ?>">Public records</a></div><div><strong>Information</strong><a href="<?= e(portal_url('projects')) ?>">Projects</a><a href="<?= e(portal_url('reports',['year'=>'all'])) ?>">Quarterly reports</a><a href="<?= e(portal_url('about')) ?>">About the portal</a></div></div><div class="shell footer-bottom"><span>© <?= date('Y') ?> SK Barangay Bantog Budget Transparency Portal</span><span>Transparency · Accountability · Participation</span></div></footer>
+<footer class="site-footer"><div class="shell footer-main"><div class="footer-brand"><img class="brand-logo" src="assets/images/sk-bantog-logo.webp" width="47" height="47" alt=""><div><strong>Sangguniang Kabataan<br>Barangay Bantog</strong><p>Tarlac City, Philippines</p></div></div><div><strong>Explore</strong><a href="<?= e(portal_url('dashboard')) ?>">Dashboard</a><a href="<?= e(portal_url('budget')) ?>">Annual budget</a><a href="<?= e(portal_url('documents',['year'=>'all'])) ?>">Public records</a></div><div><strong>Information</strong><a href="<?= e(portal_url('projects')) ?>">Projects</a><a href="<?= e(portal_url('reports',['year'=>'all'])) ?>">Quarterly reports</a><a href="<?= e(portal_url('about')) ?>">About the portal</a></div></div><div class="shell footer-bottom"><span>© <?= date('Y') ?> SK Barangay Bantog Budget Transparency Portal</span><span>Transparency · Accountability · Participation</span></div></footer>
 </body></html>

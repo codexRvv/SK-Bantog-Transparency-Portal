@@ -7,8 +7,8 @@
 <body class="admin-body">
 <?php if ($view === 'login'): ?>
 <div class="login-layout">
- <div class="login-intro"><a class="login-brand" href="../index.php"><span class="brand-mark">SK</span><span>BARANGAY BANTOG<br><small>TRANSPARENCY PORTAL</small></span></a><div><span class="overline">OFFICIALS WORKSPACE</span><h1>Make public service more transparent.</h1><p>Securely organize documents, track approved allocations and publish reports for the Barangay Bantog community.</p></div><span class="login-foot">Tarlac City, Philippines · Authorized access only</span></div>
- <div class="login-right"><div class="login-card"><div class="login-card-icon">▣</div><span class="overline">WELCOME BACK</span><h2>Official sign in</h2><p>Use your administrator or authorized SK account.</p>
+ <div class="login-intro"><a class="login-brand" href="../index.php"><img class="brand-logo" src="../assets/images/sk-bantog-logo.webp" width="47" height="47" alt="SK Barangay Bantog logo"><span>BARANGAY BANTOG<br><small>TRANSPARENCY PORTAL</small></span></a><div><span class="overline">OFFICIALS WORKSPACE</span><h1>Make public service more transparent.</h1><p>Securely organize documents, track approved allocations and publish reports for the Barangay Bantog community.</p></div><span class="login-foot">Tarlac City, Philippines · Authorized access only</span></div>
+ <div class="login-right"><div class="login-card"><div class="login-card-icon"><img src="../assets/images/sk-bantog-logo.webp" width="65" height="65" alt=""></div><span class="overline">WELCOME BACK</span><h2>Official sign in</h2><p>Use your administrator or authorized SK account.</p>
  <?php if ($alert = take_flash()): ?><div role="alert" class="alert <?= e($alert['kind']) ?>"><?= e($alert['message']) ?></div><?php endif; ?>
  <form method="post" action="index.php?view=login" class="stack-form"><?= csrf_field() ?><input type="hidden" name="action" value="login">
  <label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="username" maxlength="190" required placeholder="official@example.com">
@@ -19,7 +19,7 @@
 <?php else: ?>
 <div class="admin-layout">
 <aside class="admin-sidebar">
- <a class="sidebar-brand" href="index.php?view=overview"><span class="brand-mark">SK</span><span><strong>SK BANTOG</strong><small>OFFICIALS WORKSPACE</small></span></a>
+ <a class="sidebar-brand" href="index.php?view=overview"><img class="brand-logo" src="../assets/images/sk-bantog-logo.webp" width="47" height="47" alt="SK Barangay Bantog logo"><span><strong>SK BANTOG</strong><small>OFFICIALS WORKSPACE</small></span></a>
  <div class="sidebar-label">MANAGEMENT</div>
  <nav aria-label="Administration navigation" class="sidebar-nav">
   <a class="<?= $view==='overview'?'current':'' ?>" href="index.php?view=overview"><span>◫</span> Overview</a>

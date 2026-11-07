@@ -188,8 +188,23 @@ function render_failure(Throwable $exception): never
     error_log((string) $exception);
     http_response_code(503);
     header('Content-Type: text/html; charset=utf-8');
-    echo '<!doctype html><html lang="en"><meta charset="utf-8"><title>Portal unavailable</title>';
-    echo '<body style="font-family:system-ui;margin:10vh auto;max-width:40rem;padding:1rem"><h1>Portal setup or service required</h1>';
-    echo '<p>Please check the database connection and installation instructions. Details have been recorded in the server log.</p></body></html>';
+    $localConfigMissing = !is_file(dirname(__DIR__) . '/config/local.php');
+    $host = strtolower((string) ($_SERVER['HTTP_HOST'] ?? ''));
+    $onLocalhost = in_array(explode(':', $host)[0], ['localhost','127.0.0.1'], true);
+    echo '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Portal setup | SK Bantog</title>';
+    echo '<style>body{margin:0;min-height:100vh;display:grid;place-items:center;font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;background:#f1f6fd;color:#182f53;padding:20px;box-sizing:border-box}.panel{max-width:610px;width:100%;background:white;border:1px solid #dfe9f4;border-radius:20px;padding:clamp(24px,5vw,45px);box-shadow:0 22px 60px #153a6720}h1{font-size:clamp(24px,4vw,34px);line-height:1.2;margin:17px 0 12px;letter-spacing:-.04em}p{color:#62758f}.tag{display:inline-block;color:#0a5ad0;background:#e7f1ff;border-radius:50px;font-size:12px;font-weight:800;letter-spacing:.08em;padding:7px 12px}.steps{background:#f3f7fd;border:1px solid #e0e9f4;padding:18px;border-radius:12px;margin:20px 0}code{display:block;overflow-x:auto;margin:8px 0;padding:9px;background:#e7eef9;color:#1b467d;border-radius:7px;font-size:13px}strong{color:#19395e}small{color:#7e8eaa}</style></head><body><main class="panel">';
+    echo '<span class="tag">SK BARANGAY BANTOG · SYSTEM STATUS</span>';
+    if ($onLocalhost && $localConfigMissing) {
+        echo '<h1>Finish your local setup</h1><p>The website is running, but the local database configuration file has not been created yet.</p>';
+        echo '<div class="steps"><strong>Open PowerShell in the project folder and run:</strong>';
+        echo '<code>Copy-Item config\\local.example.php config\\local.php</code><code>notepad config\\local.php</code><code>php bin/check-setup.php</code>';
+        echo '<p>Confirm the database name is <strong>sk_bantog_portal</strong> and the username/password match your local MySQL account.</p></div>';
+    } else {
+        echo '<h1>Portal temporarily unavailable</h1><p>We could not complete this request. Please check the local database connection and PHP service configuration.</p>';
+        if ($onLocalhost) {
+            echo '<div class="steps"><strong>Check your installation in PowerShell:</strong><code>php bin/check-setup.php</code><p>Use the output to check MySQL, PHP extensions, and the administrator account.</p></div>';
+        }
+    }
+    echo '<small>Technical details are recorded in the PHP server log and are not shown publicly.</small></main></body></html>';
     exit;
 }

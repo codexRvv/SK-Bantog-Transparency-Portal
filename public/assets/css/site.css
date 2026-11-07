@@ -195,3 +195,17 @@ td small{display:block;color:#8593a7;margin-top:5px}
 @media(max-width:900px){.site-header{height:auto;min-height:76px}.header-inner{flex-wrap:wrap;padding:13px 0}.menu-toggle{display:block;margin-left:auto}.site-nav{display:none;width:100%;flex-direction:column;align-items:stretch;gap:0;border-top:1px solid var(--line);padding-top:12px}.site-nav.is-open{display:flex}.site-nav a{padding:12px 6px;font-size:.84rem}.site-nav .nav-admin{text-align:center;margin-top:8px}.hero-grid{grid-template-columns:1fr;padding:65px 0}.hero-panel{max-width:580px}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two-panels{grid-template-columns:1fr}}
 @media(max-width:650px){.shell{width:calc(100% - 32px)}.brand{min-width:0}.brand-label strong{font-size:.64rem}.brand-label small{font-size:.46rem}.brand-mark{width:42px;height:42px;font-size:20px}.hero-grid{padding:55px 0 65px}.hero-copy h1{font-size:2.6rem}.hero-copy>p{font-size:.91rem}.hero-panel{padding:24px}.snapshot-grid{grid-template-columns:repeat(2,1fr)}.snapshot-grid>div{min-height:105px}.snapshot-grid>div:nth-child(2)::after{display:none}.section{padding:63px 0}.feature-grid,.project-grid,.metric-grid,.metric-grid.three{grid-template-columns:1fr}.feature-card{min-height:250px}.section-heading{display:block}.section-heading .text-link{display:inline-block;margin-top:17px}.doc-row{gap:10px;flex-wrap:wrap}.doc-details{flex-basis:calc(100% - 60px)}.doc-row .btn{margin-left:55px}.cta{padding:35px 23px;display:block;margin:35px auto 60px}.cta .btn{margin-top:22px}.page-banner{padding:48px 0}.inner-content{padding:28px 0 60px}.content-panel{padding:20px}.footer-main{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column}.result-heading{display:block}.filter-form{align-items:stretch}.filter-form .btn{width:100%}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+/* Barangay Bantog identity refresh */
+.brand-logo{display:block;flex-shrink:0;width:50px;height:50px;object-fit:contain;border-radius:50%;background:white;box-shadow:0 2px 10px #0a30621a}
+.hero-identity{display:flex;align-items:center;gap:15px}
+.hero-identity small{display:block;font-size:.69rem;letter-spacing:.1em;font-weight:750;color:#c1dbff;margin-top:8px}
+.hero-crest{width:80px;height:80px;flex-shrink:0;border-radius:17px;background:#fff;display:grid;place-items:center;box-shadow:0 12px 32px #001c5e35}
+.hero-crest img{width:68px;height:68px;object-fit:contain}
+.hero-copy h1{margin-top:26px}
+.hero-copy h1 span{color:#ffdb5a}
+.hero-copy>p{max-width:570px}
+.icon-disc{background:white;overflow:hidden}
+.icon-disc img{width:49px;height:49px;object-fit:contain}
+.footer-brand .brand-logo{width:47px;height:47px}
+@media(max-width:650px){.brand-logo{width:42px;height:42px}.hero-crest{width:64px;height:64px}.hero-crest img{width:56px;height:56px}.hero-identity small{font-size:.56rem}.hero-identity .eyebrow{font-size:.58rem}.hero-copy h1{font-size:clamp(2.5rem,9vw,3rem)}}
