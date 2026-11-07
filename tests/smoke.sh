@@ -6,6 +6,15 @@ cp config/local.example.php config/local.php
 sed -i "s/'password' => ''/'password' => 'testpass'/" config/local.php
 MYSQL_PWD=testpass mysql -h 127.0.0.1 -u root < database/schema.sql
 printf 'Test Admin\nLongTemporaryPassword123!\n' | php bin/create-admin.php admin@example.com
+php bin/check-setup.php > /tmp/setup-diagnostics.txt 2>&1
+grep -q '\[PASS\] Administrator account' /tmp/setup-diagnostics.txt
+grep -q 'RESULT: Setup checks passed.' /tmp/setup-diagnostics.txt
+if grep -qiE 'warning:|headers already sent|session_start' /tmp/setup-diagnostics.txt; then
+  echo 'CLI setup checker produced unexpected warnings'
+  cat /tmp/setup-diagnostics.txt
+  exit 1
+fi
+
 
 php -S 127.0.0.1:8080 -t public > /tmp/sk-bantog-php.log 2>&1 &
 server_pid=$!
